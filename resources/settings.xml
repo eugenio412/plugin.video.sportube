@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="LOGIN TO SPORTUBE">
+      <setting id="sportube_user" type="text" label="USERNAME" default=""/>
+      <setting id="sportube_pass" type="text" option = "hidden" label="PASSWORD" default=""/>
+    </category>   
+</settings>
