@@ -2,7 +2,7 @@
 <addon id="plugin.video.sportube"
        name="Sportube"
        version="1.0.4"
-       provider-name="Nightflyer">
+       provider-name="eugenio412">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -19,8 +19,8 @@
     <description lang="en">Watch live and free the major sport events!</description>
     <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
     <forum></forum>
-    <website>https://github.com/nightflyer73/plugin.video.sportube</website>
+    <website>https://github.com/eugenio412/plugin.video.sportube</website>
     <email></email>
-    <source>https://github.com/nightflyer73/plugin.video.sportube</source>
+    <source>https://github.com/eugenio412/plugin.video.sportube</source>
   </extension>
 </addon>
