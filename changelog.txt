@@ -1,3 +1,6 @@
+[B]2[/B]
+- Now log in is possible with sportube credentials
+
 [B]1.0.4[/B]
 - updated API usage due to upstream changes
 
