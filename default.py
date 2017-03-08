@@ -13,7 +13,7 @@ import re
 # plugin constants
 addon = xbmcaddon.Addon()
 __plugin__ = "plugin.video.sportube2"
-__author__ = "Eugenio"
+__author__ = "eugenio412"
 
 Addon = xbmcaddon.Addon()
 
