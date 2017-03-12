@@ -117,7 +117,7 @@ def show_root_menu():
                                     request = urllib2.Request(url, headers = headers)
                                     data = urllib2.urlopen(request).read()
                                 except urllib2.HTTPError as e:
-                                    #notify(e.code)
+                                    print(e.code)
                                 except urllib2.URLError as e:
                                     notify('URLError')
                                 else:
