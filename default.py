@@ -13,7 +13,7 @@ import re
 # plugin constants
 addon = xbmcaddon.Addon()
 __plugin__ = "plugin.video.sportube2"
-__author__ = "eugenio412"
+__author__ = "Eugenio"
 
 Addon = xbmcaddon.Addon()
 
@@ -95,15 +95,25 @@ def show_root_menu():
                         url = baseUrl + "manifest.m3u8?api_key" + apiKey + "&id=" + str(linkId) + "&token=" + token
                         headers = {'referer': pageUrl,
                         'User-Agent': USERAGENT}
-                        request = urllib2.Request(url, headers = headers)
-                        data = urllib2.urlopen(request).read()
-                        data_json = data.split("#")[2].strip("\n")
-                        link = data_json[68:]
+                        try:
+                            request = urllib2.Request(url, headers = headers)
+                            data = urllib2.urlopen(request).read()
+                        except urllib2.HTTPError as e:
+                            # Return code error (e.g. 404, 501, ...)
+                            # ...
+                            print(e.code)
+                        except urllib2.URLError as e:
+                            # Not an HTTP-specific error (e.g. connection refused)
+                            # ...
+                            print('URLError')
+                        else:
+                            data_json = data.split("#")[2].strip("\n")
+                            link = data_json[68:]
+                            imageUrl = event[2]
+                            title = event[1] + " - " + event[11] + " (" + event[10][11:16] + ") " + event[14] + " - " + event[15]
+                            liStyle = xbmcgui.ListItem(title, thumbnailImage=imageUrl)
+                            addLinkItem(link, liStyle)
                         break
-                imageUrl = event[2]
-                title = event[1] + " - " + event[11] + " (" + event[10][11:16] + ") " + event[14] + " - " + event[15]
-                liStyle = xbmcgui.ListItem(title, thumbnailImage=imageUrl)
-                addLinkItem(link, liStyle)
         xbmcplugin.addSortMethod(handle, xbmcplugin.SORT_METHOD_LABEL)
         xbmcplugin.endOfDirectory(handle=handle, succeeded=True)
 
