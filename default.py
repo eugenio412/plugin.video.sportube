@@ -53,6 +53,10 @@ def show_root_menu():
     urlCdn = match[0]
     username = addon.getSetting('sportube_user')
     password = addon.getSetting('sportube_pass')
+    if (username == '' or password == ''):
+		notify('Missing username or password. Login failed.')
+		log('Missing username or password. Login failed.')
+		return ''
     #token
     url = baseUrl + "login?u="+ username + "&p=" + password + "&api_key=" + apiKey + "&force=true"
     headers = {'referer': pageUrl,
